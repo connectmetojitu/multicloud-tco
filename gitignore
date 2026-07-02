@@ -1,0 +1,15 @@
+# Never commit secrets
+.streamlit/secrets.toml
+*.env
+
+# Local test/scratch files
+debug_price.py
+test_groq.py
+test_pricing.py
+verify_processors.py
+aws_mumbai.json
+extract_aws.py
+
+# Python
+__pycache__/
+*.pyc
