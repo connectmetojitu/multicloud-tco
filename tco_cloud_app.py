@@ -33,7 +33,7 @@ GROQ_KEY = _get_key("GROQ_KEY", "PASTE_YOUR_GROQ_KEY_HERE")
 INFRACOST_KEY = _get_key("INFRACOST_KEY", "PASTE_YOUR_INFRACOST_KEY_HERE")
 # ============================================================
 
-# ---- Owner / author credit (edit these) ----
+# ---- Owner / author credit ----
 OWNER_NAME = "Jitendra"
 OWNER_TITLE = "Cloud Solution Architect"
 
@@ -397,9 +397,7 @@ def rows_from_file(file):
 st.set_page_config(page_title="Multi-Cloud TCO Comparison", layout="wide")
 st.title("☁️ Multi-Cloud TCO Comparison Agent")
 st.caption(f"Fixed 1-year / 3-year cost comparison across AWS, Azure & GCP — {REGION_LABEL}.")
-_credit = f"Built by **{OWNER_NAME}**" + (f" · {OWNER_TITLE}" if OWNER_TITLE else "")
-if OWNER_CONTACT:
-    _credit += f" · {OWNER_CONTACT}"
+_credit = f"Built by **{OWNER_NAME}** · {OWNER_TITLE}"
 st.markdown(_credit)
 
 # Visible key check — prevents silent "Unavailable" from a missing key
@@ -427,10 +425,7 @@ with st.sidebar:
     st.caption(f"AWS: {REGION_DISPLAY['aws']}  \nAzure: {REGION_DISPLAY['azure']}  \nGCP: {REGION_DISPLAY['gcp']}")
     st.markdown("**Pricing:** AWS = live reserved · Azure/GCP = live on-demand × published discount")
     st.markdown("---")
-    _side = f"**{OWNER_NAME}**" + (f"  \n{OWNER_TITLE}" if OWNER_TITLE else "")
-    if OWNER_CONTACT:
-        _side += f"  \n{OWNER_CONTACT}"
-    st.markdown(_side)
+    st.markdown(f"**{OWNER_NAME}**  \n{OWNER_TITLE}")
 
 st.subheader("1. Provide your VMs")
 tab_text, tab_file = st.tabs(["✍️ Type / paste", "📎 Upload Excel / CSV"])
